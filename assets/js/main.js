@@ -15,7 +15,7 @@ class ValidaFormulario {
         const camposValidos = this.camposValidos();
         const senhasValidas = this.senhasValidas();
         if(camposValidos && senhasValidas) {
-            alert('Formulário enviado.');
+            alert('Formulário enviado!');
             this.formulario.submit();
         }
     }
@@ -28,12 +28,12 @@ class ValidaFormulario {
 
         if(senha.value !== repetirSenha.value) {
             valid = false;
-            this.criaErro(senha, 'Senhas precisam ser iguais.');
-            this.criaErro(repetirSenha, 'Senhas precisam ser iguais.');
+            this.criaErro(senha, '*Senhas precisam ser iguais.');
+            this.criaErro(repetirSenha, '*Senhas precisam ser iguais.');
         }
 
         if(senha.value.length < 6 || senha.value.length > 12) {
-            this.criaErro(senha, 'Senha precisa estar entre 6 e 12 caracteres.');
+            this.criaErro(senha, '*Senha precisa estar entre 6 e 12 caracteres.');
         }
 
         return valid;
@@ -49,7 +49,7 @@ class ValidaFormulario {
         for(let campo of this.formulario.querySelectorAll('.validar')) {
             const label = campo.previousElementSibling.innerText;
             if(!campo.value) {
-                this.criaErro(campo, `Campo [${label}] não pode estar em branco.`);
+                this.criaErro(campo, `*Campo [${label}] não pode estar em branco.`);
                 valid = false;
             }
 
@@ -69,12 +69,12 @@ class ValidaFormulario {
         const usuario = campo.value;
         let validar = true;
         if(usuario.length < 3 || usuario.length > 12) {
-            this.criaErro(campo, 'Usuário precisa ter entre 3 e 12 caracteres.');
+            this.criaErro(campo, '*Usuário precisa ter entre 3 e 12 caracteres.');
             validar = false;
         }
 
         if(!usuario.match(/^[a-zA-Z0-9]+$/g)) {
-            this.criaErro(campo, 'Nome de usuário precisa conter apenas letras e/ou números.');
+            this.criaErro(campo, '*Nome de usuário precisa conter apenas letras e/ou números.');
             validar = false;
         }
         return validar;
@@ -84,7 +84,7 @@ class ValidaFormulario {
         const cpf = new ValidaCPF(campo.value);
 
         if(!cpf.valida()) {
-            this.criaErro(campo, 'CPF inválido');
+            this.criaErro(campo, '*CPF inválido');
             return false;
         }
 
