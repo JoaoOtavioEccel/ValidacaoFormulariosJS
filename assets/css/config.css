@@ -1,10 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+
 :root {
   --primary-color: #3ab5d1;
-  --primary-color-darker: #016c81;
+  --primary-color-darker: #2a8fa6;
+  --text-color: #333;
+  --text-light: #666;
+  --border-color: #ddd;
+  --bg-color: #f4f7f6;
+  --white: #ffffff;
 }
 
 * {
   box-sizing: border-box;
   outline: 0;
+  margin: 0;
+  padding: 0;
 }
